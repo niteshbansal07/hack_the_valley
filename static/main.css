@@ -8,13 +8,10 @@ footer {
   width: 100%;
 }
 
-/* 
-
-.container {
+/* .container {
   display: flex;
   flex-direction: row;
-}
-
+} */
 .profile-card-2 {
   max-width: 300px;
   background-color: #fff;
@@ -61,4 +58,4 @@ footer {
 
 .profile-card-2:hover .profile-username {
   bottom: 60px;
-} */
+}
