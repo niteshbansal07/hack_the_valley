@@ -14,7 +14,12 @@
         <div class="nav"></div>
     </header>
     {% block content %} {% endblock %}
-    <footer></footer>
+    <footer class="text-center">
+        {% block footer %}
+            <small> &copy; <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/niteshbansal07/hack_the_valley">aa</a>
+            </small>
+        {% endblock %}
+    </footer>
     {{ bootstrap.load_js() }}
 </body>
 </html>
