@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title%} Index{% endblock %}
+
+{% block content %}
+<form class="p-3" action="{{ url_for('check_data') }}" method="post">
+    <label class="negativeField" for="feelings">How are you feeling?</label>
+    <textarea class="form-control" id="feelings" name="feelings" rows="2" readonly>{{data[0]}}</textarea>
+    {% if check[1]=='none' %}
+      <label class="negativeField" for="environment">What in your environment stressing you out?</label>
+      <textarea class="form-control" id="environment" name="environment" rows="1"></textarea>
+      <label class="negativeField" for="howEnv">How is that affecting you?</label>
+      <textarea class="form-control" id="howEnv" name="howEnv" rows="3"></textarea>
+      <label class="negativeField" for="elaborate">Please elaborate on the topic</label>
+      <textarea class="form-control" id="elaborate" name="elaborate" rows="3"></textarea>
+      <label class="negativeField" for="effects">What are the effects its having on you?</label>
+      <textarea class="form-control" id="effects" name="effects" rows="2"></textarea>
+      <label class="negativeField" for="obstacles">What obstacles are you having in seeking help?</label>
+      <textarea class="form-control" id="obstacles" name="obstacles" rows="2"></textarea>
+    {% endif %}
+    {% if check[1]!='none' %}
+    <label class="negativeField" for="environment">What in your environment stressing you out?</label>
+    <textarea class="form-control" id="environment" name="environment" rows="1" readonly>{{check[1]}}</textarea>
+    <label class="negativeField" for="howEnv">How is {{check[1]}} affecting you?</label>
+    <textarea class="form-control" id="howEnv" name="howEnv" rows="3"></textarea>
+    <label class="negativeField" for="elaborate">Please elaborate on the topic</label>
+    <textarea class="form-control" id="elaborate" name="elaborate" rows="3"></textarea>
+    <label class="negativeField" for="effects">What are the effects its having on you?</label>
+    <textarea class="form-control" id="effects" name="effects" rows="2"></textarea>
+    <label class="negativeField" for="obstacles">What obstacles are you having in seeking help?</label>
+    <textarea class="form-control" id="obstacles" name="obstacles" rows="2"></textarea>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+
+{% endblock %}

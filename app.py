@@ -147,23 +147,34 @@ def form():
 def handle_data():
     if request.method == 'POST':
         myfirstanswer = request.form["seeAnotherFieldGroup"]
+        data = []
         if myfirstanswer=="positive":
-            oField1 = request.form["oField1"]
-            oField2 = request.form["oField2"]
-            data = oField1
+            data.append(request.form["oField1"])
+            data.append(request.form["oField2"])
         elif myfirstanswer=="negative":
-            message = []
-            message.append(request.form["feelings"])
-            message.append(request.form["environment"])
-            message.append(request.form["howEnv"])
-            message.append(request.form["elaborate"])
-            message.append(request.form["effects"])
-            message.append(request.form["obstacles"])
-            answer1 = read_chat(message, False)
-            answer2 = read_chat(message, True)
+            data.append(request.form["feelings"])
+            answer1 = read_chat(data, False)
+            return render_template('form2.html', check=answer1, data=data)
         else:
             data = "Nothing"
-    return render_template('index.html', data=answer2)
+    return render_template('index.html', data=data)
+
+@app.route('/check_data', methods=['GET', 'POST'])
+def check_data():
+    if request.method == 'POST':
+        message = []
+        message.append(request.form["feelings"])
+        message.append(request.form["environment"])
+        message.append(request.form["howEnv"])
+        message.append(request.form["elaborate"])
+        message.append(request.form["effects"])
+        message.append(request.form["obstacles"])
+        answer1 = read_chat(message, True)
+        return render_template('index.html', data=answer1)
+    else:
+        data = "Nothing"
+    return render_template('index.html', data=data)
+
 
 
 if __name__ == '__main__':
