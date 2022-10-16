@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title%} Index{% endblock %}
+
+{% block content %}
+<form class="p-3" action="">
+    
+    <div class="form-group">
+      <label for="seeAnotherFieldGroup">What do you plan on sharing today?</label>
+      <select class="form-control" id="seeAnotherFieldGroup">
+            <option value="positive">Sharing a success story!</option>
+            <option value="negative">Sharing my pain</option>
+      </select>
+    </div>
+    
+    <div class="form-group" id="positiveDiv">
+          <label class="positiveField" for="oField1">Title your Victory!</label>
+          <textarea class="form-control" id="oField1" rows="1"></textarea>
+          <label class="positiveField" for="otherField2">Elaborate the Victory!</label>
+          <textarea class="form-control" id="oField2" rows="3"></textarea>
+    </div>
+    
+    <div class="form-group" id="negativeDiv">
+      <label class="negativeField" for="feelings">How are you feeling?</label>
+      <textarea class="form-control" id="feelings" rows="2"></textarea>
+      <label class="negativeField" for="environment">What is your environment stressing you out?</label>
+      <textarea class="form-control" id="environment" rows="1"></textarea>
+      <label class="negativeField" for="howEnv">How is that environment affecting you?</label>
+      <textarea class="form-control" id="howEnv" rows="3"></textarea>
+      <label class="negativeField" for="elaborate">Please elaborate on the topic</label>
+      <textarea class="form-control" id="elaborate" rows="3"></textarea>
+      <label class="negativeField" for="effects">What are the effects its having on you?</label>
+      <textarea class="form-control" id="howEnv" rows="2"></textarea>
+      <label class="negativeField" for="obstacles">What obstacles are you having in seeking help?</label>
+      <textarea class="form-control" id="obstacles" rows="2"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+
+{% endblock %}

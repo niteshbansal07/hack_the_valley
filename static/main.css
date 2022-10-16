@@ -26,6 +26,8 @@ footer {
 
 .profile-card-2 img {
   transition: all linear 0.25s;
+  object-fit: cover;
+
 }
 
 .profile-card-2 .profile-name {
@@ -59,3 +61,8 @@ footer {
 .profile-card-2:hover .profile-username {
   bottom: 60px;
 }
+form {
+    max-width: 900px;
+    display: block;
+    margin: 0 auto;
+  }

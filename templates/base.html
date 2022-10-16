@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ bootstrap.load_css() }}
     <link rel="stylesheet" href="../static/main.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -59,5 +60,25 @@
     </footer>
     <!-- Footer -->
     {{ bootstrap.load_js() }}
+    <script>
+      $("#seeAnotherFieldGroup").change(function() {
+        if ($(this).val() == "positive") {
+          $('#positiveDiv').show();
+          $('.positiveField').attr('required', '');
+          $('.positiveField').attr('data-error', 'This field is required.');
+          $('#negativeDiv').hide();
+          $('.negativeField').removeAttr('required');
+          $('.negativeField').removeAttr('data-error');
+        } else {
+          $('#positiveDiv').hide();
+          $('.positiveField').removeAttr('required');
+          $('.positiveField').removeAttr('data-error');
+          $('#negativeDiv').show();
+          $('.negativeField').attr('required', '');
+          $('.negativeField').attr('data-error', 'This field is required.');
+        }
+      });
+      $("#seeAnotherFieldGroup").trigger("change");
+      </script>
 </body>
 </html>

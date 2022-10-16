@@ -1,17 +1,12 @@
-from flask import Flask, render_template
-from flask_bootstrap import Bootstrap5
 import cohere
 import csv
-from cohere.classify import Example
-
-
-app = Flask(__name__)
-
-bootstrap = Bootstrap5(app)
-#api key and activating the key
 api_key = 'k10bD3dfeC3VW7neuosKNR6yQlyItQLfLlScsIVQ'
 co = cohere.Client(api_key)
-
+from cohere.classify import Example
+issue = r'/Users/leoliao/Downloads/issues_and_situations.csv'
+perspective = r'/Users/leoliao/Downloads/Internal_external.csv'
+vague = r'/Users/leoliao/Downloads/vague.csv'
+stress_keyword = r'/Users/leoliao/Downloads/stress_keyword.csv'
 
 def read_csv(csv_name):
     with open(csv_name, encoding="utf8") as f:
@@ -137,19 +132,3 @@ def read_chat(messages: list, summarize: bool):
         return summary(messages)
     return (vague, cause)
 
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/browse')
-def browse():
-    return render_template('browse.html')
-
-@app.route('/form')
-def form():
-    return render_template('form.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=1)
