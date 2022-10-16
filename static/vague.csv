@@ -1,0 +1,33 @@
+"""I'm stressed""",vague
+"""School is stressing me out""",vague
+"""I got fired from my job and I'm worried about money""",specific
+"""I don't fit in""",vague
+"""I want to die""",vague
+"""My friend is lost""",vague
+"""When I’m really depressed, my self-esteem plummets. I feel like I’m a burden, a bore—someone who doesn’t matter and is in the way.""",vague
+"""I constantly worry what other people think of me""",vague
+"""I know what it's like to want to die. How it hurts to smile.""",vague
+"""I just wish for once I could look in the mirror and like what I see.""",vague
+"""I'm honestly so stressed I can't even manage simple task""",vague
+"""I'm afraid of disappointing those around me, my family, my friends, my coworkers and boss""",specific
+"""My father is always on my case about school, achievements and it stresses me out""",specific
+"""My coworkers make my life a living hell, it honestly makes me think about ending it all """,specific
+"""I'm angry because I'm terrified I might fail, because I feel alone""",vague
+"""I feel like I have trouble connecting with my american husband""",specific
+"""I'm broke, my rent is overdue and I might become homeless""",specific
+"""I want to jump off the highest structure I can find""",vague
+"""I feel like the world is out to get me and I feel like letting it crush me""",vague
+"""I feel like I’m a disappointment to my family and I’m getting less and less motivated to do the things I love like wrestling and playing video games.""",vague
+"""I feel so lonely, so loveless, like there's always just gonna be me, like no one is ever going to love me.""",specific
+"""My brother is always reckless, he says it doesn't matter if he dies or not"" ",vague
+"""I feel overwhelmed""",vague
+"""I have to present a big pitch today and I am not ready to present""",specific
+"""I'm depressed""",vague
+"""I feel overwhelmed with my divorce""",specific
+"""I don't feel like going home anymore""",vague
+"""No one in my city is friendly, everyone is rude and I don't feel welcome""",specific
+"""I'm feeling homesick""",vague
+"""I'm stressed because I have 3 assignments, 5 exams, 2 tests and a funeral to go to""",specific
+"""I feel stressed because I have homework piling up""",specific
+"""'I want to die because I am getting divorced''",specific
+"""I feel like I have no control over my life""",vague

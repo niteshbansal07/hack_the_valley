@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
 import cohere
 import csv
@@ -11,7 +11,10 @@ bootstrap = Bootstrap5(app)
 #api key and activating the key
 api_key = 'k10bD3dfeC3VW7neuosKNR6yQlyItQLfLlScsIVQ'
 co = cohere.Client(api_key)
-
+issue = r'./static/issues_and_situations.csv'
+perspective = r'./static/Internal_external.csv'
+vague = r'./static/vague.csv'
+stress_keyword = r'./static/stress_keyword.csv'
 
 def read_csv(csv_name):
     with open(csv_name, encoding="utf8") as f:
@@ -66,7 +69,7 @@ def senti_analysis(str_to_analyse: str, file_name: str):
 
     return(response.classifications)
 
-
+#first message
 def keyword_extract(stress_statement: str):
     string_formatted = '\n--\nStatement: '+stress_statement+'\nEvent:'
     response = co.generate(
@@ -82,17 +85,7 @@ def keyword_extract(stress_statement: str):
       return_likelihoods='NONE')
     return str('{}'.format(response.generations[-1].text))
 
-
-#demo input for the users inputting what they're feeling
-def test_cat(csv_name: str):
-    inputmessage = input('Input string: ')
-    category = str(senti_analysis(inputmessage, csv_name))
-    cause = str(keyword_extract(inputmessage))
-    cause = cause.replace('\n', '')
-    cause = cause.replace('--', '')
-    return (predic_confid(category), cause.strip())
-
-
+#firstmessage
 def check_vague(message: str):
     #checking how vague a message is with sentiment
     vague_data = str(senti_analysis(message, vague))
@@ -149,6 +142,28 @@ def browse():
 @app.route('/form')
 def form():
     return render_template('form.html')
+
+@app.route('/handle_data', methods=['GET', 'POST'])
+def handle_data():
+    if request.method == 'POST':
+        myfirstanswer = request.form["seeAnotherFieldGroup"]
+        if myfirstanswer=="positive":
+            oField1 = request.form["oField1"]
+            oField2 = request.form["oField2"]
+            data = oField1
+        elif myfirstanswer=="negative":
+            message = []
+            message.append(request.form["feelings"])
+            message.append(request.form["environment"])
+            message.append(request.form["howEnv"])
+            message.append(request.form["elaborate"])
+            message.append(request.form["effects"])
+            message.append(request.form["obstacles"])
+            answer1 = read_chat(message, False)
+            answer2 = read_chat(message, True)
+        else:
+            data = "Nothing"
+    return render_template('index.html', data=answer2)
 
 
 if __name__ == '__main__':
