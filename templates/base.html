@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,77 +10,64 @@
     <link rel="stylesheet" href="../static/main.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>{% block title %} {% endblock %}</title>
+=======
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ bootstrap.load_css() }}
+  <link rel="stylesheet" href="../static/main.css">
+  <title>{% block title %} {% endblock %}</title>
+>>>>>>> 361733b3f27fc3e918ad5d365681ca8fad5b2e24
 </head>
+
 <body>
-    <header class="text-white p-3" style="background-color: #f06236">
-        <div class="logo">LOGO</div>
-    </header>
-    {% block content %} {% endblock %}
-    <!-- Footer -->
-    <footer class="text-center text-white" style="background-color: #f06236">
-      <!-- Grid container -->
-      <div class="container">
-        <!-- Section: Links -->
-        <section class="mt-5">
-          <!-- Grid row-->
-          <div class="row text-center d-flex justify-content-center pt-5">
-            <!-- Grid column -->
-            <div class="col-md-2">
-              <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Connect with Psychologist</a>
-              </h6>
-            </div>
-            <!-- Grid column -->
-  
-            <!-- Grid column -->
-            <div class="col-md-2">
-              <h6 class="text-uppercase font-weight-bold">
-                <a href="#!" class="text-white">Friend nearby</a>
-              </h6>
-            </div>
-            <!-- Grid column -->
-
-
+  <header class="text-white p-3" style="background-color: rgb(250, 126, 17)">
+    <div class="logo">LOGO</div>
+  </header>
+  {% block content %} {% endblock %}
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: rgb(250, 126, 17)">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Links -->
+      <section class="mt-5">
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Connect with Psychologist</a>
+            </h6>
           </div>
-          <!-- Grid row-->
-        </section>
-        <!-- Section: Links -->
-      </div>
-      <!-- Grid container -->
-  
-      <!-- Copyright -->
-      <div
-           class="text-center p-3"
-           style="background-color: rgba(0, 0, 0, 0.2)"
-           >
-        © 2020 Copyright:
-        <a class="text-white" href="https://github.com/niteshbansal07/hack_the_valley"
-           ><script>document.write(new Date().getFullYear())</script> HTV PRODUCTIONS
-        </a>
-      </div>
-      <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
-    {{ bootstrap.load_js() }}
-    <script>
-      $("#seeAnotherFieldGroup").change(function() {
-        if ($(this).val() == "positive") {
-          $('#positiveDiv').show();
-          $('.positiveField').attr('required', '');
-          $('.positiveField').attr('data-error', 'This field is required.');
-          $('#negativeDiv').hide();
-          $('.negativeField').removeAttr('required');
-          $('.negativeField').removeAttr('data-error');
-        } else {
-          $('#positiveDiv').hide();
-          $('.positiveField').removeAttr('required');
-          $('.positiveField').removeAttr('data-error');
-          $('#negativeDiv').show();
-          $('.negativeField').attr('required', '');
-          $('.negativeField').attr('data-error', 'This field is required.');
-        }
-      });
-      $("#seeAnotherFieldGroup").trigger("change");
-      </script>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!" class="text-white">Friend nearby</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+
+        </div>
+        <!-- Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <a class="text-white" href="https://github.com/niteshbansal07/hack_the_valley">
+        <script>document.write(new Date().getFullYear())</script> HTV PRODUCTIONS
+      </a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  {{ bootstrap.load_js() }}
 </body>
+
 </html>

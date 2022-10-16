@@ -8,13 +8,12 @@ footer {
   width: 100%;
 }
 
-/* .container {
-  display: flex;
-  flex-direction: row;
-} */
+body {
+  background: #fff8f3;
+}
 .profile-card-2 {
   max-width: 400px;
-  max-height: 600px;
+  max-height: 570px;
 
   background-color: #000;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
@@ -35,10 +34,10 @@ footer {
   left: 30px;
   bottom: 290px;
   font-size: 30px;
-  color: rgb(229, 139, 55);
+  color: rgb(230, 140, 57);
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   font-weight: bold;
-  transition: all linear 0.25s;
+  transition: all linear 0.3s;
 }
 
 .profile-card-2 .profile-username {
@@ -47,11 +46,11 @@ footer {
   left: 30px;
   color: #fff;
   font-size: 13px;
-  transition: all linear 0.25s;
+  transition: all linear 0.3s;
 }
 
 .profile-card-2:hover img {
-  filter: grayscale(100%);
+  filter: grayscale(40%);
 }
 
 .profile-card-2:hover .profile-name {
@@ -66,3 +65,9 @@ form {
     display: block;
     margin: 0 auto;
   }
+.profile-card-2:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 1px 3px #ffffff;
+}
