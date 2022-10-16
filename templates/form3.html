@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%} Index{% endblock %}
+
+{% block content %}
+<form class="p-3" action="{{ url_for('index') }}">
+    Please Share whatever you would like to share. The information will be used to connect you to nearby friends, psychologists.
+  
+    <div class="form-group" id="details">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+          <label class="sharedivs" for="location">Enter your city and Country</label>
+          <textarea class="form-control" id="location" name="location" rows="1"></textarea>
+          <label class="sharedivs" for="ethnicity">What is your ethnicity?</label>
+          <textarea class="form-control" id="ethnicity" name="ethnicity" rows="1"></textarea>
+          <label class="sharedivs" for="email">What is your email?</label>
+          <textarea class="form-control" id="email" name="email" rows="1"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+
+
+
+{% endblock %}

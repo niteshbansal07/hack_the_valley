@@ -5,23 +5,37 @@
 {% block content %}
 <form class="p-3" action="{{ url_for('check_data') }}" method="post">
     <label class="negativeField" for="feelings">How are you feeling?</label>
-    <textarea class="form-control" id="feelings" name="feelings" rows="2" readonly>{{data[0]}}</textarea>
-    {% if check[1]=='none' %}
-      <label class="negativeField" for="environment">What in your environment stressing you out?</label>
-      <textarea class="form-control" id="environment" name="environment" rows="1"></textarea>
-      <label class="negativeField" for="howEnv">How is that affecting you?</label>
-      <textarea class="form-control" id="howEnv" name="howEnv" rows="3"></textarea>
-      <label class="negativeField" for="elaborate">Please elaborate on the topic</label>
-      <textarea class="form-control" id="elaborate" name="elaborate" rows="3"></textarea>
-      <label class="negativeField" for="effects">What are the effects its having on you?</label>
-      <textarea class="form-control" id="effects" name="effects" rows="2"></textarea>
-      <label class="negativeField" for="obstacles">What obstacles are you having in seeking help?</label>
-      <textarea class="form-control" id="obstacles" name="obstacles" rows="2"></textarea>
+    <textarea class="form-control" id="feelings" name="feelings" rows="2" readonly>{{feelings}}</textarea>
+    {% if 'suicidal' in check[0] %}
+    <label class="negativeField" for="suicidalCause">What is making you feel suicidal?</label>
+    <textarea class="form-control" id="suicidalCause" name="suicidalCause" rows="1" ></textarea>
+    <label class="negativeField" for="suicidalWhen">When did these thoughts started?</label>
+    <textarea class="form-control" id="suicidalWhen" name="suicidalWhen" rows="3"></textarea>
+    <label class="negativeField" for="suicidalSeek">What is stopping you to seek in person help?</label>
+    <textarea class="form-control" id="suicidalSeek" name="suicidalSeek" rows="3"></textarea>
+    <label for="share">Would you like to share your information for connections?</label>
+    <select class="negativeField" id="share" name="share">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+  </select>
     {% endif %}
-    {% if check[1]!='none' %}
+    {% if 'isolated' in check[0] %}
+    <label class="negativeField" for="isolatedCause">What is making you feel isolated?</label>
+    <textarea class="form-control" id="isolatedCause" name="isolatedCause" rows="1" ></textarea>
+    <label class="negativeField" for="isolatedKind">What kind of people do you want to connect with?</label>
+    <textarea class="form-control" id="isolatedKind" name="isolatedKind" rows="3"></textarea>
+    <label for="share">Would you like to share your information for connections?</label>
+    <select class="negativeField" id="share" name="share">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select>
+    {% endif %}
+    {% if 'stressed' in check[0] %}
+    {% if ifVague[0]==True %}
     <label class="negativeField" for="environment">What in your environment stressing you out?</label>
-    <textarea class="form-control" id="environment" name="environment" rows="1" readonly>{{check[1]}}</textarea>
-    <label class="negativeField" for="howEnv">How is {{check[1]}} affecting you?</label>
+    <textarea class="form-control" id="environment" name="environment" rows="1"></textarea>
+    <label class="negativeField" for="howEnv">How is that affecting you?</label>
     <textarea class="form-control" id="howEnv" name="howEnv" rows="3"></textarea>
     <label class="negativeField" for="elaborate">Please elaborate on the topic</label>
     <textarea class="form-control" id="elaborate" name="elaborate" rows="3"></textarea>
@@ -30,7 +44,27 @@
     <label class="negativeField" for="obstacles">What obstacles are you having in seeking help?</label>
     <textarea class="form-control" id="obstacles" name="obstacles" rows="2"></textarea>
     {% endif %}
-    <button type="submit" class="btn btn-primary">Submit</button>
+    {% if ifVague[0]==False %}
+    <label class="negativeField" for="environment">What in your environment stressing you out?</label>
+    <textarea class="form-control" id="environment" name="environment" rows="1" readonly>{{data}}</textarea>
+    <label class="negativeField" for="howEnv">How is {{check[0]}} affecting you?</label>
+    <textarea class="form-control" id="howEnv" name="howEnv" rows="3"></textarea>
+    <label class="negativeField" for="elaborate">Please elaborate on the topic</label>
+    <textarea class="form-control" id="elaborate" name="elaborate" rows="3"></textarea>
+    <label class="negativeField" for="effects">What are the effects its having on you?</label>
+    <textarea class="form-control" id="effects" name="effects" rows="2"></textarea>
+    <label class="negativeField" for="obstacles">What obstacles are you having in seeking help?</label>
+    <textarea class="form-control" id="obstacles" name="obstacles" rows="2"></textarea>
+    {% endif %}
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <div class="form-group text-white d-none">
+        <label class="negativeField" for="check">check?</label>
+        <textarea class=" text-white d-none" id="check" name="check" readonly>{{check[0]}}</textarea>
+        </select>
+      </div>
+
   </form>
 
 
